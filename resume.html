@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yash Vaddi - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1F4D36;
+            --accent: #FDB913;
+            --text-dark: #1a1a1a;
+            --text-muted: #4b5563;
+            --border: #e5e7eb;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, sans-serif;
+            line-height: 1.5;
+            color: var(--text-dark);
+            background-color: #f3f4f6;
+            padding: 40px 20px;
+        }
+
+        .resume-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 4px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .resume-container {
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+                max-width: none;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+
+        .header {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 25px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .header-left h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
+        }
+
+        .header-left h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .contact-info {
+            text-align: right;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .contact-info p {
+            margin-bottom: 2px;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .summary {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .experience-item, .project-item {
+            margin-bottom: 18px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .item-title {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .item-subtitle {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .item-date {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .item-description {
+            font-size: 13.5px;
+            margin-top: 5px;
+            color: var(--text-muted);
+        }
+
+        .item-bullets {
+            margin-top: 6px;
+            padding-left: 18px;
+        }
+
+        .item-bullets li {
+            font-size: 13.5px;
+            margin-bottom: 4px;
+            color: var(--text-muted);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .skill-cat h4 {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+
+        .skill-list {
+            font-size: 13px;
+            color: var(--text-muted);
+            list-style: none;
+        }
+
+        .skill-list span {
+            display: inline-block;
+            background: #f3f4f6;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+
+        .project-tech {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 4px;
+        }
+
+        .no-print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .no-print-btn:hover {
+            transform: scale(1.05);
+            background: #163626;
+        }
+    </style>
+</head>
+<body>
+    <button class="no-print-btn no-print" onclick="window.print()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        Save as PDF / Print
+    </button>
+
+    <div class="resume-container">
+        <header class="header">
+            <div class="header-left">
+                <h1>Yash Vaddi</h1>
+                <h2>Freelance React & Next.js Developer</h2>
+            </div>
+            <div class="contact-info">
+                <p>Ahmedabad, Gujarat, India</p>
+                <p>+91 (760) 015-8762 | <a href="mailto:yashvaddi@gmail.com">yashvaddi@gmail.com</a></p>
+                <p><a href="https://linkedin.com/in/yash-vaddi">linkedin.com/in/yash-vaddi</a></p>
+                <p><a href="https://github.com/Yashvaddi">github.com/Yashvaddi</a></p>
+            </div>
+        </header>
+
+        <section>
+            <h3 class="section-title">Summary</h3>
+            <div class="summary">
+                Highly skilled Freelance React & Next.js Developer with 3+ years of experience building high-performance, scalable web applications for global clients. Specialized in turning complex ideas into production-ready products with a focus on SEO, performance, and user experience. Expert in modern frontend architecture and full-stack integration.
+            </div>
+        </section>
+
+        <section>
+            <h3 class="section-title">Technical Skills</h3>
+            <div class="skills-grid">
+                <div class="skill-cat">
+                    <h4>Frontend</h4>
+                    <div class="skill-list">
+                        <span>React.js</span> <span>Next.js</span> <span>TypeScript</span> <span>Tailwind CSS</span> <span>HTML5/CSS3</span>
+                    </div>
+                </div>
+                <div class="skill-cat">
+                    <h4>Backend</h4>
+                    <div class="skill-list">
+                        <span>Node.js</span> <span>Express.js</span> <span>MongoDB</span> <span>PostgreSQL</span> <span>Prisma</span> <span>REST APIs</span>
+                    </div>
+                </div>
+                <div class="skill-cat">
+                    <h4>Tools & DevOps</h4>
+                    <div class="skill-list">
+                        <span>Docker</span> <span>AWS (EC2/CloudFront)</span> <span>Git/GitHub</span> <span>CI/CD</span> <span>Postman</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="section-title">Professional Experience</h3>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <span class="item-title">Software Engineer</span>
+                    <span class="item-date">Jan 2023 - Present</span>
+                </div>
+                <div class="item-subtitle">Webcodegenie Technologies PVT LTD</div>
+                <ul class="item-bullets">
+                    <li>Developed and maintained scalable web applications using React, Next.js, and Node.js.</li>
+                    <li>Designed and implemented robust REST APIs and complex database schemas with PostgreSQL and MongoDB.</li>
+                    <li>Optimized application performance and SEO, resulting in improved user engagement.</li>
+                    <li>Integrated CI/CD pipelines to streamline deployment and ensure high-quality production code.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="item-header">
+                    <span class="item-title">Full Stack Developer</span>
+                    <span class="item-date">June 2022 - Present</span>
+                </div>
+                <div class="item-subtitle">Freelance</div>
+                <ul class="item-bullets">
+                    <li>Collaborated with startups and agencies across USA, UK, and Europe to deliver custom SaaS solutions.</li>
+                    <li>Transformed client requirements into architectural designs and production-ready applications.</li>
+                    <li>Implemented secure authentication, payment integrations (Stripe), and real-time features.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="section-title">Highlighted Projects</h3>
+            
+            <div class="project-item">
+                <div class="item-header">
+                    <span class="item-title">Sahi Saathi Matrimony Platform</span>
+                    <span class="project-tech">React.js | Next.js | Socket.IO | MongoDB</span>
+                </div>
+                <div class="item-description">
+                    Built a high-performance matrimony platform with complex search algorithms and real-time chat functionality. Focused on mobile responsiveness and conversion rate optimization.
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="item-header">
+                    <span class="item-title">CandidSuite ATS (Recruitment SaaS)</span>
+                    <span class="project-tech">Next.js | PostgreSQL | Docker | AWS</span>
+                </div>
+                <div class="item-description">
+                    Developed a comprehensive Applicant Tracking System for recruitment agencies, featuring secure multi-tenant architecture and automated data pipelines.
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="item-header">
+                    <span class="item-title">Discover Equestrian Real-Estate</span>
+                    <span class="project-tech">Next.js | Google Maps API | Stripe API | SEO</span>
+                </div>
+                <div class="item-description">
+                    Created a niche real-estate platform with advanced geographic search and SEO optimization, catering to global equestrian property markets.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="section-title">Education</h3>
+            <div class="experience-item">
+                <div class="item-header">
+                    <span class="item-title">Bachelor of Engineering (BEng), Computer Science</span>
+                    <span class="item-date">2019 - 2023</span>
+                </div>
+                <div class="item-subtitle">Gujarat Technological University</div>
+            </div>
+            <div class="experience-item" style="margin-top: -10px;">
+                <div class="item-header">
+                    <span class="item-title">Web Development Bootcamp</span>
+                    <span class="item-date">2022</span>
+                </div>
+                <div class="item-subtitle">Vnurture Technologies</div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
