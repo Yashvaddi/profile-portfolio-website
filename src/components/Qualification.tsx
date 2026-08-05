@@ -1,6 +1,7 @@
 "use client";
 import { Calendar, GraduationCap, Briefcase, Trophy } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Qualification = () => {
   const [activeTab, setActiveTab] = useState<
@@ -25,25 +26,18 @@ const Qualification = () => {
 
   const workData = [
     {
-      title: "Software Engineer",
-      institution: "Webcodegenie Technologies PVT LTD",
-      year: "Jan 2023 - Present",
+      title: "Software Developer - Frontend",
+      institution: "Webcodegenie Technologies Pvt. Ltd.",
+      year: "Aug 2023 - Present",
       description:
-        "Builds complete web applications covering front-end (HTML, CSS, JavaScript, React) and back-end (Node.js, Python, databases like PostgreSQL). Handles end-to-end tasks such as API development, UI/UX design, deployment with CI/CD.",
+        "Architected and delivered micro frontend systems using Webpack Module Federation — split monolithic React app into 6+ independently deployable modules. Led full development lifecycle on 6+ platforms, optimized Core Web Vitals achieving ~40% reduction in page load times, and built HIPAA-aligned healthcare platforms.",
     },
     {
-      title: "Senior Frontend Engineer",
-      institution: "Enterprise Solutions",
-      year: "June 2022 - Present",
+      title: "Intern Software Developer",
+      institution: "Webcodegenie Technologies Pvt. Ltd.",
+      year: "Jan 2023 - Jul 2023",
       description:
-        "Architecting scalable Micro Frontend ecosystems and high-performance React applications. Specializing in Module Federation, real-time engines, and secure enterprise-grade integrations.",
-    },
-    {
-      title: "Trainee Software Developer",
-      institution: "Webcodegenie Technologies PVT LTD",
-      year: "Jan 2023", // Assuming start of 2023 was trainee period, or overlaps
-      description:
-        "Completed training focused on building demo projects and code reviews.",
+        "Contributed to React.js component development for production platforms. Integrated REST APIs, built responsive UI layouts using Tailwind CSS and Bootstrap, and adopted Git branching workflows and Agile practices.",
     },
   ];
 
@@ -116,9 +110,13 @@ const Qualification = () => {
         {/* Content */}
         <div className="space-y-8">
           {getData().map((item, index) => (
-            <div
-              key={index}
-              className="portfolio-card animate-in slide-in-from-bottom duration-500"
+            <motion.div
+              key={`${activeTab}-${index}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="portfolio-card"
             >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
@@ -143,7 +141,7 @@ const Qualification = () => {
                   <p className="text-muted-foreground italic leading-relaxed">{item.description}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
