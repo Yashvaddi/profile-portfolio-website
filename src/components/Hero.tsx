@@ -99,8 +99,8 @@ const Hero = () => {
 
             <p className="text-base md:text-lg text-muted-foreground max-w-lg leading-relaxed pt-2">
               Architecting scalable Micro Frontend ecosystems &amp; high-performance enterprise
-              solutions with <strong className="text-foreground">3.2+ years</strong> of experience
-              across USA, UK &amp; Europe.
+              solutions with <strong className="text-foreground">3.5+ years</strong> of experience,
+              based in <strong className="text-foreground">Ahmedabad, India</strong>, serving global clients.
             </p>
           </div>
 
@@ -200,7 +200,7 @@ const Hero = () => {
               style={{ animationDelay: "1s", boxShadow: "0 8px 28px rgba(0,0,0,0.2)" }}
             >
               <Zap className="w-4 h-4 text-white" />
-              <span className="font-bold text-sm text-white">3.2+ Yrs Exp</span>
+              <span className="font-bold text-sm text-white">3.5+ Yrs Exp</span>
             </div>
 
             {/* Floating Badge: Projects */}
@@ -220,7 +220,7 @@ const Hero = () => {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {[
             { value: "10+", label: "Enterprise Apps" },
-            { value: "3.2+", label: "Years Experience" },
+            { value: "3.5+", label: "Years Experience" },
             { value: "100%", label: "Client Satisfaction" },
             { value: "5+", label: "Technologies Mastered" },
           ].map((stat, i) => (
