@@ -1,5 +1,6 @@
 "use client";
 import { ExternalLink, Github, Code2, ShieldCheck, Cpu, Layout, Microscope, Users } from "lucide-react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import crmProject from "@/assets/crm-project.webp";
 import sahiSaathiProject from "@/assets/sahi-saathi-project.webp";
@@ -143,7 +144,14 @@ const Projects = () => {
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           {projects.map((project, index) => (
-            <div key={index} className="portfolio-card group flex flex-col h-full bg-white border border-gray-100/50">
+            <motion.div 
+              key={index} 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="portfolio-card group flex flex-col h-full bg-white border border-gray-100/50"
+            >
               {/* Project Media Area */}
               <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-8 shadow-sm group-hover:shadow-xl transition-all duration-500">
                 {project.image ? (
@@ -225,7 +233,7 @@ const Projects = () => {
                   )}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
         
