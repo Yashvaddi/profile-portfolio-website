@@ -5,8 +5,8 @@ import avatarImage from "@/assets/avatar-illustration.webp";
 
 const STATS = [
   { label: "Enterprise Apps", value: "10+", icon: <Code2 className="w-5 h-5" /> },
-  { label: "Years Experience", value: "3.2+", icon: <Trophy className="w-5 h-5" /> },
-  { label: "Global Clients", value: "USA, UK, EU", icon: <Globe className="w-5 h-5" /> },
+  { label: "Years Experience", value: "3.5+", icon: <Trophy className="w-5 h-5" /> },
+  { label: "Global Clients", value: "USA, UK, AU", icon: <Globe className="w-5 h-5" /> },
   { label: "Compliance", value: "HIPAA / SOC2", icon: <ShieldCheck className="w-5 h-5" /> },
 ];
 
@@ -48,7 +48,7 @@ const About = () => {
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground font-semibold">Clients in</p>
-                  <p className="text-sm font-bold text-foreground">USA, UK & Europe</p>
+                  <p className="text-sm font-bold text-foreground">USA, UK & AU</p>
                 </div>
               </div>
 
@@ -62,7 +62,7 @@ const About = () => {
                 </div>
                 <div>
                   <p className="text-xs text-white/80 font-semibold">Experience</p>
-                  <p className="text-sm font-bold text-white">3.2+ Years</p>
+                  <p className="text-sm font-bold text-white">3.5+ Years</p>
                 </div>
               </div>
             </div>
@@ -78,10 +78,10 @@ const About = () => {
                 high-performance Next.js/React applications.
               </h3>
               <p className="text-muted-foreground leading-relaxed text-base">
-                With over 3.2 years of experience, I have delivered{" "}
+                With over 3.5 years of experience based out of <strong className="text-foreground">Ahmedabad, India</strong>, I have delivered{" "}
                 <strong className="text-foreground">10+ enterprise-grade applications</strong> focusing
                 on developer autonomy, sub-second performance, and strict security
-                compliance (HIPAA/SOC2).
+                compliance (HIPAA).
               </p>
               <p className="text-muted-foreground leading-relaxed text-base">
                 My expertise lies in designing <strong className="text-foreground">Module Federation hosts</strong> and
