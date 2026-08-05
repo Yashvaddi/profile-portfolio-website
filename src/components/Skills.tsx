@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 interface Skill {
   name: string;
@@ -42,7 +43,7 @@ const skillCategories: SkillCategory[] = [
       { name: "Next.js 14", level: 96 },
       { name: "React (Advanced)", level: 95 },
       { name: "TypeScript", level: 91 },
-      { name: "Redux Toolkit", level: 90 },
+      { name: "Redux & Zustand", level: 90 },
       { name: "Framer Motion", level: 85 },
     ],
   },
@@ -80,9 +81,14 @@ const skillCategories: SkillCategory[] = [
   },
 ];
 
-function SkillCard({ category, animate }: { category: SkillCategory; animate: boolean }) {
+function SkillCard({ category, animate, index }: { category: SkillCategory; animate: boolean; index: number }) {
   return (
-    <div className="portfolio-card group flex flex-col gap-5">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={animate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="portfolio-card group flex flex-col gap-5"
+    >
       <div className="flex items-center gap-3">
         <span className="text-2xl">{category.emoji}</span>
         <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
@@ -105,7 +111,7 @@ function SkillCard({ category, animate }: { category: SkillCategory; animate: bo
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -144,8 +150,8 @@ const Skills = () => {
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((category) => (
-            <SkillCard key={category.title} category={category} animate={animate} />
+          {skillCategories.map((category, index) => (
+            <SkillCard key={category.title} category={category} animate={animate} index={index} />
           ))}
         </div>
 
